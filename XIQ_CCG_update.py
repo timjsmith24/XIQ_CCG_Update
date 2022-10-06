@@ -21,8 +21,7 @@ pageSize = 100
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--external',action="store_true", help="Optional - adds External Account selection, to create floorplans and APs on external VIQ")
-parser.add_argument('--noaplog',action="store_true", help="Optional - removes logs for APs that don't have a floor assigned")
+parser.add_argument('--external',action="store_true", help="Optional - adds External Account selection, to use an external VIQ")
 args = parser.parse_args()
 
 PATH = current_dir
