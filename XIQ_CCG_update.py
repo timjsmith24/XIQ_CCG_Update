@@ -109,17 +109,18 @@ if not floor_list:
     print("script is exiting....")
     raise SystemExit
 
-
+device_data = []
 for floor_id in floor_list:
     print(f"Collecting Devices for floor '{location_df.loc[floor_id,'name']}'...")
     ## Collect Devices
-    device_data = x.collectDevices(pageSize,location_id=floor_id)
+    temp_data = x.collectDevices(pageSize,location_id=floor_id)
+    device_data = device_data + temp_data
     #pp(device_data)
-    device_df = pd.DataFrame(device_data)
-    device_df.set_index('id',inplace=True)
-    print(f"Found {len(device_df.index)} Devices")
+device_df = pd.DataFrame(device_data)
+device_df.set_index('id',inplace=True)
+print(f"Found {len(device_df.index)} Devices")
 
-ccg_input = input("Enter the names of the CCG's (seperated by a comma) ")
+ccg_input = input("Enter the names of the CCG's (separated by a comma) ")
 ccg_list = ccg_input.split(" ")
 
 print("Collecting CCGs...")
