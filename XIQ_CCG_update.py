@@ -121,7 +121,7 @@ device_df.set_index('id',inplace=True)
 print(f"Found {len(device_df.index)} Devices")
 
 ccg_input = input("Enter the names of the CCG's (separated by a comma) ")
-ccg_list = ccg_input.split(" ")
+ccg_list = ccg_input.split(",")
 
 print("Collecting CCGs...")
 ## Collect CCGs
